@@ -15,10 +15,13 @@
     </div>
     <hr>
     @foreach($posts as $post)
-    <div class="row">
-        <div class="col-md-12">
-            <p><strong>{{ $post['title'] }}</strong> <a href="{{ route('admin.edit', ['id' => array_search($post, $posts)]) }}">Edit</a></p>
-        </div>
+    <div class="card">
+        <div class="card-body">
+        <h5 class="card-title">{{$post->title}}</h5>
+        <p class="card-text">{{$post->content}}</p>
+        <a href="{{ route('admin.edit',['id'=>$post->id]) }}" class="btn btn-primary">Edit</a>
+        <a href="{{ route('admin.delete',['id'=>$post->id]) }}" class="btn btn-danger">Delete</a>
     </div>
+      </div>
     @endforeach
 @endsection
